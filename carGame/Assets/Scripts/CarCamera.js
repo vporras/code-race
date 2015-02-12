@@ -30,12 +30,7 @@ function LateUpdate () {
 
 
 function FixedUpdate () {
-	var localVelocity = car.InverseTransformDirection(car.rigidbody.velocity);
-	
-	if (localVelocity.z < -0.5)
-		rotationVector.y = car.eulerAngles.y + 180;
-	else
-		rotationVector.y = car.eulerAngles.y;
+	rotationVector.y = car.eulerAngles.y;
 		
 	var acc = car.rigidbody.velocity.magnitude * 30;
 	camera.fieldOfView = DefaultFOV + acc * zoomRatio * Time.deltaTime;
