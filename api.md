@@ -6,28 +6,28 @@ Input
 -----
 
 * direction to next check point (relative)
-        getCheckpointDirection()
+    - `getCheckpointDirection()`
 
 * your speed (optional?)
-        getSpeed()
+    - `getSpeed()`
 
 * obstacles
-        getDistanceToObstacle() : distance
-        getDistanceToObstacle(azimuth: angle) : distance
-        getDistanceToObstacle(altitude: angle, azimuth: angle) : distance
+   - `getDistanceToObstacle() : distance`
+   - `getDistanceToObstacle(azimuth: angle) : distance`
+   - `getDistanceToObstacle(altitude: angle, azimuth: angle) : distance`
 
 Output
 ------
 
 * steering angle
-        steer(angle);
-        turnLeft();
-        turnRight();
+   - `steer(angle);`
+   - `turnLeft();`
+   - `turnRight();`
 
 * speed
-        accelerate()
-        accelerate(power: float);
-        brake();
+   - `accelerate()`
+   - `accelerate(power: float);`
+   - `brake();`
 
 
 
