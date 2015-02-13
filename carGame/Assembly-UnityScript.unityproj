@@ -46,9 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AI\AICarControl.js" />
      <Compile Include="Assets\Scripts\AI\Path.js" />
+     <Compile Include="Assets\Scripts\CarAPI.js" />
      <Compile Include="Assets\Scripts\CarCamera.js" />
-     <Compile Include="Assets\Scripts\CarControl.js" />
+     <Compile Include="Assets\Scripts\ManualCarControl.js" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

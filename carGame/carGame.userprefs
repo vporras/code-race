@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CarCamera.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AI/AICarControl.js">
     <Files>
       <File FileName="Assets/Scripts/CarCamera.js" Line="33" Column="2" />
+      <File FileName="Assets/Scripts/AI/AICarControl.js" Line="8" Column="35" />
+      <File FileName="Assets/Scripts/ManualCarControl.js" Line="15" Column="19" />
+      <File FileName="Assets/Scripts/CarAPI.js" Line="33" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
