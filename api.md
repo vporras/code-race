@@ -5,32 +5,33 @@ Api for Bots
 Input
 -----
 
-    direction to next check point (relative)
-        getCheckpointDirection()
+* direction to next check point (relative)
+    - `getCheckpointDirection()`
 
-    your speed (optional?)
-        getSpeed()
+* your speed (optional?)
+    - `getSpeed()`
 
-    obstacles
-        getDistanceToObstacle() : distance
-        getDistanceToObstacle(azimuth: angle) : distance
-        getDistanceToObstacle(altitude: angle, azimuth: angle) : distance
+* obstacles
+   - `getDistanceToObstacle() : distance`
+   - `getDistanceToObstacle(azimuth: angle) : distance`
+   - `getDistanceToObstacle(altitude: angle, azimuth: angle) : distance`
 
 Output
 ------
 
-    steering angle
-        steer(angle);
-        turnLeft();
-        turnRight();
+* steering angle
+   - `steer(angle);`
+   - `turnLeft();`
+   - `turnRight();`
 
-    speed
-        accelerate()
-        accelerate(power: float);
-        brake();
+* speed
+   - `accelerate()`
+   - `accelerate(power: float);`
+   - `brake();`
 
 
 
-ideas:
+Ideas
+-----
 
-    run race with/without other racers
+* run race with/without other racers
