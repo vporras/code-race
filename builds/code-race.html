@@ -23,46 +23,63 @@
             var u = new UnityObject2(config);
 
             function getAICode() {
-                jQuery("button").prop("disabled", false);
+                $("button").prop("disabled", false);
 
-                jQuery("#code-submit").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar1", "storeAICode", jQuery("#bot-code").val());
+                $("#code-submit").off("click").click(function(){
+                    u.getUnity().SendMessage("AICar1", "storeAICode", $("#bot-code").val());
+                    // $.ajax({
+                    //     type: 'POST',
+                    //     url: 'http://requestb.in/1ejdq5d1',
+                    //     dataType: 'jsonp',
+                    //     data: {
+                    //         bot: 1,
+                    //         code: $("#bot-code").val()
+                    //     }
+                    // });
+                    $("#error-log").empty();
                 });
 
-                jQuery("#code-submit-2").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar2", "storeAICode", jQuery("#bot-code-2").val());
+                $("#code-submit-2").off("click").click(function(){
+                    u.getUnity().SendMessage("AICar2", "storeAICode", $("#bot-code-2").val());
                 });
+            }
+
+            function printError(logString, stackTrace, type) {
+                $("#error-log").append("<p class='error'>" + logString + "</p>");
+                console.log(logString);
+                console.log(stackTrace);
+                console.log(type);
             }
 
             jQuery(function() {
 
-                var $missingScreen = jQuery("#unityPlayer").find(".missing");
-                var $brokenScreen = jQuery("#unityPlayer").find(".broken");
-                $missingScreen.hide();
-                $brokenScreen.hide();
+                var missingScreen = jQuery("#unityPlayer").find(".missing");
+                var brokenScreen = jQuery("#unityPlayer").find(".broken");
+                missingScreen.hide();
+                brokenScreen.hide();
                 
                 u.observeProgress(function (progress) {
                     switch(progress.pluginStatus) {
                         case "broken":
-                            $brokenScreen.find("a").click(function (e) {
+                            brokenScreen.find("a").click(function (e) {
                                 e.stopPropagation();
                                 e.preventDefault();
                                 u.installPlugin();
                                 return false;
                             });
-                            $brokenScreen.show();
+                            brokenScreen.show();
                         break;
                         case "missing":
-                            $missingScreen.find("a").click(function (e) {
+                            missingScreen.find("a").click(function (e) {
                                 e.stopPropagation();
                                 e.preventDefault();
                                 u.installPlugin();
                                 return false;
                             });
-                            $missingScreen.show();
+                            missingScreen.show();
                         break;
                         case "installed":
-                            $missingScreen.remove();
+                            missingScreen.remove();
                         break;
                         case "first":
                         break;
@@ -145,6 +162,13 @@
             height: 600px;
             width: 960px;
         }
+        
+
+        p.error {
+            color: red;
+            font-size: 10pt;
+            font-family: monospace;
+        }
         -->
         </style>
     </head>
@@ -183,6 +207,9 @@ updateFunction = function() {
                 </textarea>
                 <br />
                 <button id="code-submit" type="button" disabled="disabled">Submit Bot 1 Code</button>
+                <br />
+                <div id="error-log">
+                </div>
                 <br />
                 <br />
 

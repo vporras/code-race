@@ -22,10 +22,6 @@
 			};
 			var u = new UnityObject2(config);
 
-			function getAICode() {
-				u.getUnity().SendMessage("AICar1", "storeAICode", "updateFunction = function() {Car.Accelerate(1);};");
-			}
-
 			jQuery(function() {
 
 				var $missingScreen = jQuery("#unityPlayer").find(".missing");
