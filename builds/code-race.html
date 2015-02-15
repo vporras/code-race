@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Code Race</title>
+        <script type='text/javascript' src='build1/jquery.min.js'></script>
+        <script type="text/javascript">
+        <!--
+        var unityObjectUrl = "build1/UnityObject2.js";
+        if (document.location.protocol == 'https:')
+            unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+        document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+        -->
+        </script>
+        <script type="text/javascript">
+        <!--
+            var config = {
+                width: 960, 
+                height: 600,
+                params: { enableDebugging:"0" }
+                
+            };
+            var u = new UnityObject2(config);
+
+            function getAICode() {
+                $("button").prop("disabled", false);
+
+                $("#code-submit").off("click").click(function(){
+                    u.getUnity().SendMessage("AICar1", "storeAICode", $("#bot-code").val());
+                    // $.ajax({
+                    //     type: 'POST',
+                    //     url: 'http://requestb.in/1ejdq5d1',
+                    //     dataType: 'jsonp',
+                    //     data: {
+                    //         bot: 1,
+                    //         code: $("#bot-code").val()
+                    //     }
+                    // });
+                    $("#error-log").empty();
+                });
+
+                $("#code-submit-2").off("click").click(function(){
+                    u.getUnity().SendMessage("AICar2", "storeAICode", $("#bot-code-2").val());
+                });
+            }
+
+            function printError(logString, stackTrace, type) {
+                $("#error-log").append("<p class='error'>" + logString + "</p>");
+                console.log(logString);
+                console.log(stackTrace);
+                console.log(type);
+            }
+
+            jQuery(function() {
+
+                var missingScreen = jQuery("#unityPlayer").find(".missing");
+                var brokenScreen = jQuery("#unityPlayer").find(".broken");
+                missingScreen.hide();
+                brokenScreen.hide();
+                
+                u.observeProgress(function (progress) {
+                    switch(progress.pluginStatus) {
+                        case "broken":
+                            brokenScreen.find("a").click(function (e) {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                u.installPlugin();
+                                return false;
+                            });
+                            brokenScreen.show();
+                        break;
+                        case "missing":
+                            missingScreen.find("a").click(function (e) {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                u.installPlugin();
+                                return false;
+                            });
+                            missingScreen.show();
+                        break;
+                        case "installed":
+                            missingScreen.remove();
+                        break;
+                        case "first":
+                        break;
+                    }
+                });
+                u.initPlugin(jQuery("#unityPlayer")[0], "build1/build1.unity3d");
+
+                jQuery(document).delegate('textarea', 'keydown', function(e) {
+                  var keyCode = e.keyCode || e.which;
+
+                  if (keyCode == 9) {
+                    e.preventDefault();
+                    var el = jQuery(this).get(0);
+                    var val = jQuery(this).val();
+                    var start = el.selectionStart;
+                    var end = el.selectionEnd;
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    jQuery(this).val(val.substring(0, start)
+                                + "    "
+                                + val.substring(end));
+
+                    // put caret at right position again
+                    el.selectionStart =
+                    el.selectionEnd = start + 4;
+                  }
+                });
+            });
+        -->
+        </script>
+        <style type="text/css">
+        <!--
+        body {
+            font-family: Helvetica, Verdana, Arial, sans-serif;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        a:link, a:visited {
+            color: #000;
+        }
+        a:active, a:hover {
+            color: #666;
+        }
+        p.header {
+            font-size: small;
+        }
+        p.header span {
+            font-weight: bold;
+        }
+        p.footer {
+            font-size: x-small;
+        }
+        div.content {
+            margin: auto;
+            width: 960px;
+        }
+        div.broken,
+        div.missing {
+            margin: auto;
+            position: relative;
+            top: 50%;
+            width: 193px;
+        }
+        div.broken a,
+        div.missing a {
+            height: 63px;
+            position: relative;
+            top: -31px;
+        }
+        div.broken img,
+        div.missing img {
+            border-width: 0px;
+        }
+        div.broken {
+            display: none;
+        }
+        div#unityPlayer {
+            cursor: default;
+            height: 600px;
+            width: 960px;
+        }
+        
+
+        p.error {
+            color: red;
+            font-size: 10pt;
+            font-family: monospace;
+        }
+        -->
+        </style>
+    </head>
+    <body>
+        <div style="float: left">
+            <p class="header"><span>Unity Web Player | </span>carGame</p>
+            <div class="content">
+                <div id="unityPlayer">
+                    <div class="missing">
+                        <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+                            <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+                        </a>
+                    </div>
+                    <div class="broken">
+                        <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+                            <img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+        </div>
+        <div>
+            <form>
+                <br />
+                <br />
+                <br />
+                <label>Bot 1 Code</label>
+                <br />
+                <textarea id="bot-code" rows="10" cols="50" style="font-family: monospace;">
+startFunction = function() {};
+
+updateFunction = function() {
+    Car.Accelerate(1);
+};
+                </textarea>
+                <br />
+                <button id="code-submit" type="button" disabled="disabled">Submit Bot 1 Code</button>
+                <br />
+                <div id="error-log">
+                </div>
+                <br />
+                <br />
+
+
+                <label>Bot 2 Code</label>
+                <br />
+                <textarea id="bot-code-2" rows="10" cols="50" style="font-family: monospace;">
+startFunction = function() {};
+
+updateFunction = function() {
+    Car.Accelerate(1);
+    Car.Turn(Random.Range(-1.0, 1.0));
+};
+                </textarea>
+                <br />
+                <button id="code-submit-2" type="button" disabled="disabled">Submit Bot 2 Code</button>
+            </form>
+        </div>
+    </body>
+</html>
