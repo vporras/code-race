@@ -3,6 +3,13 @@ var FL : WheelCollider;
 var FR : WheelCollider;
 var RL : WheelCollider;
 var RR : WheelCollider;
+
+var wheelFLTrans : Transform;
+var wheelFRTrans : Transform;
+var wheelRLTrans : Transform;
+var wheelRRTrans : Transform;
+
+
 private var maxTorque : float = 50;
 private var motorTorque : float = 0;
 private var maxBrakeTorque : float = 100;
@@ -34,12 +41,19 @@ function Turn (angle: float) {
 }
 
 function FixedUpdate () {
-	RR.motorTorque = motorTorque;
-	RL.motorTorque = motorTorque;
+	RR.motorTorque = motorTorque * Input.GetAxis("Vertical");
+	RL.motorTorque = motorTorque * Input.GetAxis("Vertical");
 	
 	RR.brakeTorque = brakeTorque;
 	RL.brakeTorque = brakeTorque;
 	
 	FL.steerAngle = steerAngle;
 	FR.steerAngle = steerAngle;
+}
+
+function Update() {
+	wheelFLTrans.Rotate(FL.rpm/60*360*Time.deltaTime,0,0);
+	wheelFRTrans.Rotate(FR.rpm/60*-360*Time.deltaTime,0,0);
+	wheelRLTrans.Rotate(RL.rpm/60*360*Time.deltaTime,0,0);
+	wheelRRTrans.Rotate(RR.rpm/60*-360*Time.deltaTime,0,0);
 }
