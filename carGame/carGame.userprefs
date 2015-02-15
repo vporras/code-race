@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarAPI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ErrorHandler.js">
     <Files>
-      <File FileName="Assets\Scripts\CarAPI.js" Line="58" Column="33" />
-      <File FileName="Assets\Scripts\CarCamera.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\AICarControl.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ManualCarControl.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ErrorHandler.js" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/CarCamera.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AI/AICarControl.js" Line="8" Column="35" />
+      <File FileName="Assets/Scripts/ManualCarControl.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CarAPI.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

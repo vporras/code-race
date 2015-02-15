@@ -10,7 +10,6 @@ function storeAICode (s: String) {
 }
 
 function Start () {
-	rigidbody.centerOfMass.y = -0.8;
 	startFunction();
 }
 
