@@ -3,7 +3,7 @@ Project Plan
 
 Modules
 -------
--Game
+- Game
   * Car
     + Car Api
     + Car Artwork
@@ -42,9 +42,9 @@ Testing and prep for next meeting
 Write progress report
 
 ### Vacation
-Continue work on modules
-Get server up and running
-Finalize environment (terrain/path)
+- Continue work on modules
+- Get server up and running
+- Finalize environment (terrain/path)
 
 ### Week 0 TT
 Integrate modules
@@ -64,7 +64,8 @@ Wrapper???
 Environment
 
 ### Joshua
-Look and feel???
+- Test AIs???
+- Look and feel???
 
 ### Kevin
 Tournament Server
