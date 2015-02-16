@@ -6,28 +6,29 @@ Input
 -----
 
 * direction to next check point (relative)
-    - `getCheckpointDirection()`
+    - `GetCheckpointDirection() : float`
 
 * your speed (optional?)
-    - `getSpeed()`
+    - `GetSpeed() : float`
 
 * obstacles
-   - `getDistanceToObstacle() : distance`
-   - `getDistanceToObstacle(azimuth: angle) : distance`
-   - `getDistanceToObstacle(altitude: angle, azimuth: angle) : distance`
+   - `GetDistanceToObstacle() : float`
+   - `GetDistanceToObstacle(azimuth : float) : float`
+   - `GetDistanceToObstacle(altitude : float, azimuth : float) : float`
 
 Output
 ------
 
 * steering angle
-   - `steer(angle);`
-   - `turnLeft();`
-   - `turnRight();`
+   - `Turn(angle : float);`
+   - `TurnLeft()`
+   - `TurnRight()`
 
 * speed
-   - `accelerate()`
-   - `accelerate(power: float);`
-   - `brake();`
+   - `Accelerate()`
+   - `Accelerate(power : float)`
+   - `Brake()`
+   - `Brake(power : float)`
 
 
 
@@ -35,3 +36,4 @@ Ideas
 -----
 
 * run race with/without other racers
+* make test AIs
