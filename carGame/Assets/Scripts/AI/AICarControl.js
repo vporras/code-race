@@ -15,10 +15,4 @@ function Start () {
 
 function FixedUpdate () {
 	updateFunction();
-	
-//	Application.ExternalEval(
-//		"console.log('Hello, World!');"
-
-//	);
-//	Debug.Log('x = ' + f());
 }

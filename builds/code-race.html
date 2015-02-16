@@ -220,8 +220,8 @@ updateFunction = function() {
 startFunction = function() {};
 
 updateFunction = function() {
-    Car.Accelerate(1);
-    Car.Turn(Random.Range(-1.0, 1.0));
+    Car.Accelerate(.5);
+    Car.Turn( Car.GetCheckpointDirection());
 };
                 </textarea>
                 <br />

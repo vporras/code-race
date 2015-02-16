@@ -1,16 +1,19 @@
 ﻿#pragma strict
-var CarAPI : CarAPI;
+var Car : CarAPI;
 
 function Start () {
 
 }
 
 function Update () {
-	CarAPI.Accelerate(Input.GetAxis("Vertical"));
-	CarAPI.Turn(Input.GetAxis("Horizontal"));
+	Car.Accelerate(Input.GetAxis("Vertical"));
+	Car.Turn(Input.GetAxis("Horizontal"));
 	
 	if (Input.GetButton("Jump"))
-		CarAPI.Brake(1);
+		Car.Brake(1);
 	else
-		CarAPI.Brake(0);
+		Car.Brake(0);
+		
+	if (Input.GetKeyDown("return"))
+		Car.UnFlip();
 }
