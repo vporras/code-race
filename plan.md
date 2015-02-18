@@ -5,7 +5,7 @@ Modules
 -------
 - Game
   * Car
-    + Car Api
+    + Car API
     + Car Artwork
     + Multiple Cars
   * Environment
@@ -55,17 +55,27 @@ Testing and report
 ### Week 2
 Work on final presentation
 
+Goals by Week 8
+---------------
++ User will be able to submit the code for the bot, under an email address
++ The bots will be timed going around a track with checkpoints
++ The results will be displayed to the user, and sent to a server
++ The server will display the times on a leaderboard
++ We will have multiple sample AIs to test these features
++ The Car API will have obstacle detection
+
 Responsibilities
 ----------------
 ### Ilya - Wrapper
 + bot editing
 + bot testing
 + code submission
++ select test terrain
 
 ### John - Environment
 + path
 + terrain
-+ timing
++ timing and advanced scoring
 
 ### Joshua - Testing
 + sample AIs
