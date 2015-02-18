@@ -57,18 +57,28 @@ Work on final presentation
 
 Responsibilities
 ----------------
-### Ilya
-Wrapper???
+### Ilya - Wrapper
++ bot editing
++ bot testing
++ code submission
 
-### John
-Environment
+### John - Environment
++ path
++ terrain
++ timing
 
-### Joshua
-- Test AIs???
-- Look and feel???
+### Joshua - Testing
++ sample AIs
++ integration
++ multiple cars
 
-### Kevin
-Tournament Server
+### Kevin - Server
++ provide API to client wrappers
++ collect code
++ run tournaments
++ display results
 
-### Victor
-Car API
+### Victor - Car API
++ movement
++ obstacle detection
++ multiple cars for tournament
