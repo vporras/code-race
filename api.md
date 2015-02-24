@@ -14,7 +14,7 @@ Input
 * obstacles
    - `GetDistanceToObstacle() : float`
    - `GetDistanceToObstacle(azimuth : float) : float`
-   - `GetDistanceToObstacle(altitude : float, azimuth : float) : float`
+   - `GetDistanceToObstacle(azimuth : float, altitude : float) : float`
 
 Output
 ------
