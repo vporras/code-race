@@ -16,6 +16,9 @@ Input
    - `GetDistanceToObstacle(azimuth : float) : float`
    - `GetDistanceToObstacle(azimuth : float, altitude : float) : float`
 
+* flipping
+   - `Flipped() : boolean`
+
 Output
 ------
 
@@ -30,7 +33,8 @@ Output
    - `Brake()`
    - `Brake(power : float)`
 
-
+* flipping
+   - `UnFlip()`
 
 Ideas
 -----
