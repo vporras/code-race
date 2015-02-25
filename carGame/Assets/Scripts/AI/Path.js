@@ -19,8 +19,6 @@ function InitPath () {
 			i++;
 		}
 	}
-	
-	Debug.Log(path[0]);
 }
 
 function GetCheckpoint(i : int) : Transform {

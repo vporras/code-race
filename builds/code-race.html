@@ -26,7 +26,7 @@
                 $("button").prop("disabled", false);
 
                 $("#code-submit").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar1", "storeAICode", $("#bot-code").val());
+                    u.getUnity().SendMessage("AICar1", "testAICode", $("#bot-code").val());
                     // $.ajax({
                     //     type: 'POST',
                     //     url: 'http://requestb.in/1ejdq5d1',
@@ -40,7 +40,7 @@
                 });
 
                 $("#code-submit-2").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar2", "storeAICode", $("#bot-code-2").val());
+                    u.getUnity().SendMessage("AICar2", "testAICode", $("#bot-code-2").val());
                 });
             }
 
@@ -49,6 +49,10 @@
                 console.log(logString);
                 console.log(stackTrace);
                 console.log(type);
+            }
+
+            function printScore(score) {
+                $("#error-log").text(score);
             }
 
             jQuery(function() {
@@ -208,8 +212,8 @@ updateFunction = function() {
                 <br />
                 <button id="code-submit" type="button" disabled="disabled">Submit Bot 1 Code</button>
                 <br />
-                <div id="error-log">
-                </div>
+                <div id="error-log"></div>
+                <div id="score"></div>
                 <br />
                 <br />
 
@@ -222,6 +226,9 @@ startFunction = function() {};
 updateFunction = function() {
     Car.Accelerate(.5);
     Car.Turn( Car.GetCheckpointDirection());
+
+    if (Car.IsFlipped())
+        Car.UnFlip();
 };
                 </textarea>
                 <br />

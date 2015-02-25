@@ -60,7 +60,7 @@ function TurnRight () {
 	Turn(1);
 }
 
-function Flipped () : boolean {
+function IsFlipped () : boolean {
 	return Vector3.Dot(transform.up,Vector3.up) < 0;
 }
 

@@ -5,8 +5,8 @@ var Car : CarAPI;
 
 Application.ExternalCall("getAICode");
 
-function storeAICode (s: String) {
-	eval(s);
+function testAICode (code: String) {
+	eval(code);
 }
 
 function Start () {
