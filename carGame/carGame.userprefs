@@ -1,20 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-<<<<<<< HEAD
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AI/AICarControl.js">
     <Files>
-      <File FileName="Assets/Scripts/CarAPI.js" Line="30" Column="34" />
-      <File FileName="Assets/Scripts/AI/Path.js" Line="24" Column="2" />
+      <File FileName="Assets/Scripts/CarAPI.js" Line="128" Column="136" />
+      <File FileName="Assets/Scripts/AI/Path.js" Line="37" Column="39" />
       <File FileName="Assets/Scripts/ManualCarControl.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AI/AICarControl.js" Line="8" Column="35" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\Path.js">
-    <Files>
-      <File FileName="Assets\Scripts\AI\Path.js" Line="36" Column="1" />
-      <File FileName="Assets\Scripts\CarAPI.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ManualCarControl.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\AICarControl.js" Line="1" Column="1" />
->>>>>>> 3764d5495caf7b59dd035fd3e51e333890a1037c
+      <File FileName="Assets/Scripts/AI/AICarControl.js" Line="9" Column="10" />
+      <File FileName="Assets/Scripts/ManualCamera.js" Line="4" Column="26" />
+      <File FileName="Assets/Scripts/CarCamera.js" Line="36" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
