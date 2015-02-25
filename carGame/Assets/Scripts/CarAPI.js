@@ -30,10 +30,18 @@ function Accelerate (power: float) {
 	motorTorque = maxTorque * power;
 }
 
+function Accelerate () {
+	Accelerate(1);
+}
+
 function Brake (power: float) {
 	power = Mathf.Clamp01(power);
 	
 	brakeTorque = maxBrakeTorque * power;
+}
+
+function Brake () {
+	Brake(1);
 }
 
 function Turn (angle: float) {
@@ -44,22 +52,52 @@ function Turn (angle: float) {
 	steerAngle = Mathf.Lerp(maxSteerAngle, 2, speedFactor) * angle;
 }
 
-function Flipped() : boolean {
+function TurnLeft () {
+	Turn(-1);
+}
+
+function TurnRight () {
+	Turn(1);
+}
+
+function Flipped () : boolean {
 	return Vector3.Dot(transform.up,Vector3.up) < 0;
 }
 
-function UnFlip() {
+function UnFlip () {
    transform.rotation.z = 0;
    transform.rotation.x = 0;
    transform.Translate(0, 1, 0);
 }
 
-function GetCheckpointDirection() : float {
+function GetCheckpointDirection () : float {
 	var checkpoint : Transform = path.GetCheckpoint(checkpointIdx);
 	var checkpointVector : Vector3 = transform.InverseTransformPoint(Vector3(checkpoint.position.x, transform.position.y, checkpoint.position.z));
 	
 	var direction : float = Mathf.Atan2(checkpointVector.x, checkpointVector.z) * Mathf.Rad2Deg;
 	return direction;
+}
+
+function GetDistanceToObstacle (azimuth : float, altitude : float) : float {
+	var hit : RaycastHit;
+	
+	var direction = Quaternion.Euler(-altitude, azimuth, 0) * transform.forward;
+	
+	if (Physics.Raycast(transform.position, direction, hit))
+		Debug.DrawLine(transform.position, hit.point, Color.white);
+	return hit.distance;
+}
+
+function GetDistanceToObstacle (azimuth : float) : float {
+	return GetDistanceToObstacle(azimuth, 0);
+}
+
+function GetDistanceToObstacle () : float {
+	return GetDistanceToObstacle(0, 0);
+}
+
+function GetSpeed () {
+	return rigidbody.velocity.magnitude * 60 * 60 / 1000; //kph
 }
 
 function FixedUpdate () {
@@ -80,7 +118,7 @@ function FixedUpdate () {
 		checkpointIdx = 0;
 }
 
-function Update() {
+function Update () {
 	wheelFLTrans.Rotate(FL.rpm/60*360*Time.deltaTime,0,0);
 	wheelFRTrans.Rotate(FR.rpm/60*360*Time.deltaTime,0,0);
 	wheelRLTrans.Rotate(RL.rpm/60*360*Time.deltaTime,0,0);

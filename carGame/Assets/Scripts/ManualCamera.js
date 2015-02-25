@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 function Start () {
-
+	camera.fieldOfView = 60;
 }
 
 function Update () {
