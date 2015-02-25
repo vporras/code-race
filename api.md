@@ -14,7 +14,10 @@ Input
 * obstacles
    - `GetDistanceToObstacle() : float`
    - `GetDistanceToObstacle(azimuth : float) : float`
-   - `GetDistanceToObstacle(altitude : float, azimuth : float) : float`
+   - `GetDistanceToObstacle(azimuth : float, altitude : float) : float`
+
+* flipping
+   - `Flipped() : boolean`
 
 Output
 ------
@@ -30,7 +33,8 @@ Output
    - `Brake()`
    - `Brake(power : float)`
 
-
+* flipping
+   - `UnFlip()`
 
 Ideas
 -----
