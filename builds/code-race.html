@@ -25,22 +25,17 @@
             function getAICode() {
                 $("button").prop("disabled", false);
 
-                $("#code-submit").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar1", "testAICode", $("#bot-code").val());
+                $("#code-test").off("click").click(function(){
+                    u.getUnity().SendMessage("AICar", "testAICode", $("#bot-code").val());
                     // $.ajax({
                     //     type: 'POST',
                     //     url: 'http://requestb.in/1ejdq5d1',
                     //     dataType: 'jsonp',
                     //     data: {
-                    //         bot: 1,
                     //         code: $("#bot-code").val()
                     //     }
                     // });
                     $("#error-log").empty();
-                });
-
-                $("#code-submit-2").off("click").click(function(){
-                    u.getUnity().SendMessage("AICar2", "testAICode", $("#bot-code-2").val());
                 });
             }
 
@@ -200,27 +195,9 @@
                 <br />
                 <br />
                 <br />
-                <label>Bot 1 Code</label>
+                <label>Bot Code</label>
                 <br />
                 <textarea id="bot-code" rows="10" cols="50" style="font-family: monospace;">
-startFunction = function() {};
-
-updateFunction = function() {
-    Car.Accelerate(1);
-};
-                </textarea>
-                <br />
-                <button id="code-submit" type="button" disabled="disabled">Submit Bot 1 Code</button>
-                <br />
-                <div id="error-log"></div>
-                <div id="score"></div>
-                <br />
-                <br />
-
-
-                <label>Bot 2 Code</label>
-                <br />
-                <textarea id="bot-code-2" rows="10" cols="50" style="font-family: monospace;">
 startFunction = function() {};
 
 updateFunction = function() {
@@ -232,7 +209,10 @@ updateFunction = function() {
 };
                 </textarea>
                 <br />
-                <button id="code-submit-2" type="button" disabled="disabled">Submit Bot 2 Code</button>
+                <button id="code-test" type="button" disabled="disabled">Test Code</button>
+                <br />
+                <div id="error-log"></div>
+                <div id="score"></div>
             </form>
         </div>
     </body>
