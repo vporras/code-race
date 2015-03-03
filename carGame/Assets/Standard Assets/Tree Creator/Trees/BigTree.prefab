@@ -19344,10 +19344,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 7.21160269
+  m_Radius: 1
   m_Height: 11.0393562
   m_Direction: 1
-  m_Center: {x: -.506586075, y: 5.51967812, z: .762636662}
+  m_Center: {x: -0, y: 5, z: 0}
 --- !u!193 &19300000
 Tree:
   m_ObjectHideFlags: 1
