@@ -15,15 +15,32 @@
         <script type="text/javascript">
         <!--
             var config = {
-                width: 960, 
+                width: 960,
                 height: 600,
                 params: { enableDebugging:"0" }
-                
+
             };
+            /*if(navigator.platform.toUpperCase().indexOf('WIN') !== -1
+						|| navigator.platform.toUpperCase().indexOf('MAC') !== -1) {
+							$.getScript("http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js")
+							.done(function() {
+								var unityConfig = new UnityObject2(config);
+								//...
+								unityConfig.initPlugin($("#unitygame")[0], game);
+							});
+						} else {
+							$.getScript("http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js")
+							.done(function(){
+								unityObject.embedUnity("unitygame", game, config.width, config.height);
+							});
+						}
+            var u = $("#unitygame embed")[0];*/
+
+
             var u = new UnityObject2(config);
 
             function getAICode() {
-                $("button").prop("disabled", false);
+                $("#code-test").prop("disabled", false);
 
                 $("#code-test").off("click").click(function(){
                     u.getUnity().SendMessage("AICar", "testAICode", $("#bot-code").val());
@@ -39,6 +56,21 @@
                 });
             }
 
+            function submitAICode() {
+              $("#code-submit").off("click").click(function(){
+                $.ajax({
+                  type: "POST",
+                  url: "http://requestb.in/1l9bscg1",
+                  dataType: "jsonp",
+                  data: {
+                    email: $("#e-mail").val(),
+                    code: $("#bot-code").val(),
+                    score: $("#score").val()
+                  }
+                })
+              })
+            }
+
             function printError(logString, stackTrace, type) {
                 $("#error-log").append("<p class='error'>" + logString + "</p>");
                 console.log(logString);
@@ -47,7 +79,10 @@
             }
 
             function printScore(score) {
+                $("#code-submit").prop("disabled", false);
                 $("#error-log").text(score);
+                var elem = document.getElementById("score2");
+                elem.value = score;
             }
 
             jQuery(function() {
@@ -56,7 +91,7 @@
                 var brokenScreen = jQuery("#unityPlayer").find(".broken");
                 missingScreen.hide();
                 brokenScreen.hide();
-                
+
                 u.observeProgress(function (progress) {
                     switch(progress.pluginStatus) {
                         case "broken":
@@ -161,7 +196,7 @@
             height: 600px;
             width: 960px;
         }
-        
+
 
         p.error {
             color: red;
@@ -213,6 +248,11 @@ updateFunction = function() {
                 <br />
                 <div id="error-log"></div>
                 <div id="score"></div>
+            </form>
+            <form>
+                <input type="hidden" name="score" id="score2">
+                E-mail: <input type="text" />
+                <button id="code-submit" type="button" disabled="disabled">Submit Code</button>
             </form>
         </div>
     </body>
