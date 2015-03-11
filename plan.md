@@ -64,25 +64,29 @@ Goals by Week 8
 + We will have multiple sample AIs to test these features
 + The Car API will have obstacle detection
 
+Goals by Week 0
+---------------
++ Advanced timing with multiple checkpoints
+ - start/restart timing after code submission
++ Rescaled map
++ New car artwork
++ Code submission
++ Formatted leaderboard
+
 Responsibilities
 ----------------
 ### Ilya - Wrapper
 + bot editing
-+ bot testing
 + code submission
-+ select test terrain
++ select camera
++ car artwork
 
 ### John - Environment
 + path
 + terrain
-+ timing and advanced scoring
++ timing
 
-### Joshua - Testing
-+ sample AIs
-+ integration
-+ multiple cars
-
-### Kevin - Server
+### Joshua and Kevin - Server
 + provide API to client wrappers
 + collect code
 + run tournaments
@@ -92,3 +96,5 @@ Responsibilities
 + movement
 + obstacle detection
 + multiple cars for tournament
++ sample AIs
++ tournament
