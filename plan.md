@@ -72,6 +72,8 @@ Goals by Week 0
 + New car artwork
 + Code submission
 + Formatted leaderboard
++ Everyone makes their own AI
++ Multiple cameras
 
 Responsibilities
 ----------------
