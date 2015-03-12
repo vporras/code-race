@@ -2,6 +2,7 @@ package main
 
 import (
     "github.com/gin-gonic/gin"
+    "github.com/gin-gonic/gin/binding"
     "database/sql"
     "gopkg.in/gorp.v1"
     _ "github.com/mattn/go-sqlite3"
@@ -31,16 +32,19 @@ func main(){
 	//Post a time
 	r.POST("/times", postTime)
 
+	//Serve the client web page
+	r.Static("/static/", "../builds/")
+
 	//RUUUUUUUUUUUUN!
 	r.Run(":8080")
 }
 
 type LapSignature struct {
-	Time int
+	Time float64
 	Email string 
 }
 
-func createLapSignature(time int, email string) LapSignature {
+func createLapSignature(time float64, email string) LapSignature {
 	lapSig := LapSignature{
 		Time: time,
 		Email: email,
@@ -65,7 +69,7 @@ func lookupLaps(email string) gin.H {
 func postTime(c *gin.Context) {
 	var json LapSignature
 
-	c.Bind(&json)
+	c.BindWith(&json, binding.JSON)
 	lapsig := createLapSignature(json.Time, json.Email)
 	if lapsig.Time == json.Time {
 		content := gin.H{

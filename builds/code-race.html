@@ -44,29 +44,24 @@
 
                 $("#code-test").off("click").click(function(){
                     u.getUnity().SendMessage("AICar", "testAICode", $("#bot-code").val());
-                    // $.ajax({
-                    //     type: 'POST',
-                    //     url: 'http://requestb.in/1ejdq5d1',
-                    //     dataType: 'jsonp',
-                    //     data: {
-                    //         code: $("#bot-code").val()
-                    //     }
-                    // });
                     $("#error-log").empty();
                 });
-            }
 
-            function submitAICode() {
+
               $("#code-submit").off("click").click(function(){
+
+                var data = {
+                    Email: $("#e-mail").val(),      // email: $("#e-mail").val(),
+                    // code: $("#bot-code").val(),
+                    Time: $("#score").text() * 1.0 // score: $("#score").text() * 1.0
+                }
+
                 $.ajax({
                   type: "POST",
-                  url: "http://requestb.in/1l9bscg1",
-                  dataType: "jsonp",
-                  data: {
-                    email: $("#e-mail").val(),
-                    code: $("#bot-code").val(),
-                    score: $("#score").val()
-                  }
+                  url: "http://localhost:8080/times",
+                  dataType: "json",
+                  processData: false,
+                  data: JSON.stringify(data)
                 })
               })
             }
@@ -80,9 +75,7 @@
 
             function printScore(score) {
                 $("#code-submit").prop("disabled", false);
-                $("#error-log").text(score);
-                var elem = document.getElementById("score2");
-                elem.value = score;
+                $("#score").text(score);
             }
 
             jQuery(function() {
@@ -250,7 +243,6 @@ updateFunction = function() {
                 <div id="score"></div>
             </form>
             <form>
-                <input type="hidden" name="score" id="score2">
                 E-mail: <input type="text" id="e-mail"/>
                 <button id="code-submit" type="button" disabled="disabled">Submit Code</button>
             </form>

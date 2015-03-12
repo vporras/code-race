@@ -27,13 +27,12 @@ function Update () {
 
 function OnTriggerEnter() {
 	
-	if(lapno == 0) {
+	if (lapno == 0) {
 		elapsedTime = 0; lapno = lapno+1;
 	}
 	
 	else {
-	elapsedTime = elapsedTime; lapno = lapno+1;
-	Application.ExternalCall("printScore(" + elapsedTime +")");
+		lapno = lapno+1;
+		Application.ExternalCall("printScore(" + elapsedTime +")");
 	}
-	
 }

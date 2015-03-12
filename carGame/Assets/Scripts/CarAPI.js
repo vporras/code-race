@@ -45,7 +45,7 @@ function Brake () {
 }
 
 function Turn (angle: float) {
-	angle = Mathf.Clamp(angle, -1, 1);
+	angle = Mathf.Clamp(angle, -2, 2);
 	
 	var speedFactor = rigidbody.velocity.magnitude/50;
 	
@@ -67,6 +67,7 @@ function IsFlipped () : boolean {
 function UnFlip () {
    transform.rotation.z = 0;
    transform.rotation.x = 0;
+   rigidbody.velocity = Vector3(0, 0, 0);
    transform.Translate(0, 1, 0);
 }
 
@@ -112,8 +113,8 @@ function FixedUpdate () {
 	
 	var checkpoint : Transform = path.GetCheckpoint(checkpointIdx);
 	var checkpointVector : Vector3 = transform.InverseTransformPoint(Vector3(checkpoint.position.x, transform.position.y, checkpoint.position.z));
-	if (checkpointVector.magnitude <= checkpointThreshold) {
-		checkpointIdx++; Debug.Log(checkpointIdx);}
+	if (checkpointVector.magnitude <= checkpointThreshold)
+		checkpointIdx++;
 	if (checkpointIdx >= path.GetLength())
 		checkpointIdx = 0;
 }
