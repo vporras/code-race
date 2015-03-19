@@ -74,7 +74,6 @@ Server API
 ```
     url = `ws://localhost:8080/ws`
     c = new Websocket(url);
-
 ```
 
 Tournament API
