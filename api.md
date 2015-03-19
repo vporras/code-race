@@ -71,6 +71,7 @@ Server API
 * We currently do not have the need to send any messages to the server.
 
 * To connect to the wsocket using jQuery:
+    
     url = `ws://localhost:8080/ws`
     c = new Websocket(url);
 
