@@ -54,8 +54,7 @@ Server API
 ==========
 
 * Times are stored in the database with type:
-  `:t LapSignature = {"Time": float64, "Email": string}` 
-  Due to change to include nickname and code.
+  `:t LapSignature = {"Time": float64, "Email": string}`
 
 * `GET localhost:8080/times` will retrieve the Db.
 
@@ -68,7 +67,6 @@ Server API
 
 * Data written to the websocket will be of the type:
   `{"Leaderboard": [:t LapSignature]}`
-  Where the array will contain the top ten lap times.
 
 * We currently do not have the need to send any messages to the server.
 
