@@ -16,7 +16,9 @@ var dbmap = initDb()
 
 type LapSignature struct {
 	Time float64
-	Email string 
+	Name string
+	Email string
+	Code string 
 }
 
 func main(){
@@ -44,10 +46,12 @@ func main(){
 	r.Run(":8080")
 }
 
-func createLapSignature(time float64, email string) LapSignature {
+func createLapSignature(time float64, email string, name string, code string) LapSignature {
 	lapSig := LapSignature{
 		Time: time,
 		Email: email,
+		Code: code,
+		Name: name,
 	}
 	err := dbmap.Insert(&lapSig)
 	checkErr(err, "Insert unsuccessful")
@@ -69,13 +73,15 @@ func postTime(c *gin.Context) {
 	var json LapSignature
 
 	c.BindWith(&json, binding.JSON)
-	lapsig := createLapSignature(json.Time, json.Email)
+	lapsig := createLapSignature(json.Time, json.Email, json.Name, json.Code)
 	go func(){notifyCh <- true}()
 	if lapsig.Time == json.Time {
 		content := gin.H{
 			"result": "success",
 			"time": lapsig.Time,
 			"email": lapsig.Email,
+			"name": lapsig.Name,
+			"code": lapsig.Code,
 		}
 		c.JSON(201, content)
 	} else {
