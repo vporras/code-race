@@ -52,26 +52,26 @@ Wrapper → Game
 
 Server API
 ==========
-This is how the client interacts with the server.
 
-Times are stored in the database with type:
-`:t LapSignature = {"Time": float64, "Email": string}`
-Due to change to include nickname and code.
+* Times are stored in the database with type:
+  `:t LapSignature = {"Time": float64, "Email": string}`
 
-GET `localhost:8080/times` will retrieve the Db.
+  Due to change to include nickname and code.
 
-POST `localhost:8080/times` will add a time to the database.
+* `GET localhost:8080/times` will retrieve the Db.
 
-GET `localhost:8080/lookup/:email` will retrive all Db entries with
-email :email.
+* `POST localhost:8080/times` will add a time to the database.
 
-GET `localhost:8080/ws` is the websocket connection URL.
+* `GET localhost:8080/lookup/:email` will retrive all Db entries with
+  email :email.
 
-Data written to the websocket will be of the type:
-`{"Leaderboard": [:t LapSignature]}`
-Where the array will contain the top ten lap times.
+* `GET localhost:8080/ws` is the websocket connection URL.
 
-We currently do not have the need to send any messages to the server.
+* Data written to the websocket will be of the type:
+  `{"Leaderboard": [:t LapSignature]}`
+  Where the array will contain the top ten lap times.
+
+* We currently do not have the need to send any messages to the server.
 
 Tournament API
 ==============
