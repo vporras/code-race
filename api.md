@@ -73,7 +73,9 @@ Server API
 * To connect to the wsocket using jQuery:
 ```
     url = `ws://localhost:8080/ws`
-    c = new Websocket(url);```
+    c = new Websocket(url);
+
+```
 
 Tournament API
 ==============
