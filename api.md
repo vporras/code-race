@@ -66,7 +66,7 @@ Server API
 * `GET localhost:8080/ws` is the websocket connection URL.
 
 * Data written to the websocket will be of the type:
-  `{"Leaderboard": [:t LapSignature]}`
+  `{"Leaderboard": [LapSignature]}`
 
 * We currently do not have the need to send any messages to the server.
 
