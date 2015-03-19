@@ -140,9 +140,9 @@ var wsupgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-/*               														 *
+/*                                                                       *
  * ALWAYS RUNNING. CONSTANTLY CHECKS IF NEW LEADERBOARD NEEDS TO BE SENT *
- *																		 */ 
+ *                                                                       */ 
 
 func wsUpdate(){
 	for {
