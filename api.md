@@ -54,7 +54,7 @@ Server API
 ==========
 
 * Times are stored in the database with type:
-  `:t LapSignature = {"Time": float64, "Email": string}`
+  `:t LapSignature = {"Time": float64, "Email": string}` 
   Due to change to include nickname and code.
 
 * `GET localhost:8080/times` will retrieve the Db.
