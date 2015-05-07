@@ -16,12 +16,22 @@ private var brakeTorque : float = 0;
 private var maxSteerAngle : float = 15;
 private var steerAngle : float = 0;
 
+var lapCompleted : boolean = false;
 var path: Path;
 private var checkpointIdx : int = 0;
 var checkpointThreshold : float = 5;
+var timer: Timer;
 
 function Start () {
 	rigidbody.centerOfMass.y = -0.8;
+}
+
+function Reset () {
+	lapCompleted = false;
+	checkpointIdx = 0;
+	transform.position = Vector3(230, 2, 240);
+	transform.rotation = Quaternion.identity;
+	rigidbody.velocity = Vector3(0, 0, 0);
 }
 
 function Accelerate (power: float) {
@@ -79,6 +89,13 @@ function GetCheckpointDirection () : float {
 	return direction;
 }
 
+function GetCheckpointDistance () : float {
+	var checkpoint : Transform = path.GetCheckpoint(checkpointIdx);
+	var checkpointVector : Vector3 = transform.InverseTransformPoint(Vector3(checkpoint.position.x, transform.position.y, checkpoint.position.z));
+
+	return checkpointVector.magnitude;
+}
+
 function GetDistanceToObstacle (azimuth : float, altitude : float) : float {
 	var hit : RaycastHit;
 	
@@ -115,8 +132,10 @@ function FixedUpdate () {
 	var checkpointVector : Vector3 = transform.InverseTransformPoint(Vector3(checkpoint.position.x, transform.position.y, checkpoint.position.z));
 	if (checkpointVector.magnitude <= checkpointThreshold)
 		checkpointIdx++;
-	if (checkpointIdx >= path.GetLength())
+	if (checkpointIdx >= path.GetLength()) {
 		checkpointIdx = 0;
+		lapCompleted = true;
+	}
 }
 
 function Update () {

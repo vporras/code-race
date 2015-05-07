@@ -2,7 +2,7 @@
 var Car : CarAPI;
 
 function Start () {
-
+	active = false;
 }
 
 function Update () {

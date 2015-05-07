@@ -7,9 +7,7 @@ Application.ExternalCall("getAICode");
 
 function testAICode (code: String) {
 	eval(code);
-}
-
-function Start () {
+	Car.Reset();
 	startFunction();
 }
 
