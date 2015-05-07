@@ -7,7 +7,7 @@ Car → Bot
 
 * direction to next check point (relative)
     - `GetCheckpointDirection() : float`
-    - 
+    
 * distance to next check point
     - `GetCheckpointDistance() : float`
 
