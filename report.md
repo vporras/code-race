@@ -13,13 +13,19 @@ Final Report
 
 ## The frontend wrapper for the game
 + The frontend wrapper is very minimalistic, so it was very easy to integrate the Unity game.
++ We used basic HTML and CSS to format the page, without any frameworks such as Bootstrap.
++ We used socket.io (a Websocket API) to communicate with the server.
++ As we expect this website to be used on computers only (i.e. no tablets or phones), the site is not mobile friendly. 
 
 ## The backend
-+ We ended up using a different language, Go, for the backend because one of our team members was familiar with it.
++ We initially ended up using a different language, Go, for the backend because one of our team members was familiar with it.
++ A second server using Node.js and Express was created because of the difficulties of learning and installing Go.
++ We used the free web hosting provided by Heroku, which was very easy to set up from the tutorial.
 
 ## Team work and communication
 + We organized ourselves pretty organically, people largely chose for themselves what to work on.
 + We mostly communicated via Facebook and email, with only a few in person meetings.
++ The in person meetings not with the sponsors generally had 2-4 people because it was difficult to find times where everybody was available
 + Near the deadline, it was difficult to get in touch with everyone. It would have been a good idea to share phone numbers, as opposed to organizing everything online.
 + We did most of the work in the first two weeks and the last week. Perhaps we could have done more if we'd had some sort of weekly meeting to keep everyone on track.
 
