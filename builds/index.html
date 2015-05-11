@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Code Race</title>
+        <script type='text/javascript' src='build1/jquery.min.js'></script>
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+        <script type="text/javascript">
+        <!--
+        var unityObjectUrl = "build1/UnityObject2.js";
+        if (document.location.protocol == 'https:')
+            unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+        document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+        -->
+        </script>
+        <script type="text/javascript">
+        <!--
+
+            var config = {
+                width: 960,
+                height: 600,
+                params: { enableDebugging:"0" }
+
+            };
+
+
+            var u = new UnityObject2(config);
+
+
+            jQuery(function() {
+
+                var missingScreen = jQuery("#unityPlayer").find(".missing");
+                var brokenScreen = jQuery("#unityPlayer").find(".broken");
+                missingScreen.hide();
+                brokenScreen.hide();
+
+                u.observeProgress(function (progress) {
+                    switch(progress.pluginStatus) {
+                        case "broken":
+                            brokenScreen.find("a").click(function (e) {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                u.installPlugin();
+                                return false;
+                            });
+                            brokenScreen.show();
+                        break;
+                        case "missing":
+                            missingScreen.find("a").click(function (e) {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                u.installPlugin();
+                                return false;
+                            });
+                            missingScreen.show();
+                        break;
+                        case "installed":
+                            missingScreen.remove();
+                        break;
+                        case "first":
+                        break;
+                    }
+                });
+                u.initPlugin(jQuery("#unityPlayer")[0], "build1/build1.unity3d");
+
+                jQuery(document).delegate('textarea', 'keydown', function(e) {
+                  var keyCode = e.keyCode || e.which;
+
+                  if (keyCode == 9) {
+                    e.preventDefault();
+                    var el = jQuery(this).get(0);
+                    var val = jQuery(this).val();
+                    var start = el.selectionStart;
+                    var end = el.selectionEnd;
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    jQuery(this).val(val.substring(0, start)
+                                + "    "
+                                + val.substring(end));
+
+                    // put caret at right position again
+                    el.selectionStart =
+                    el.selectionEnd = start + 4;
+                  }
+                });
+            });
+
+
+        -->
+        </script>
+    </head>
+    <body>
+        <div>
+        </div>
+
+
+        <div id="mainContainer">
+
+            <div id="leftContainer">
+
+                <div id="topMessageContainer" class="textContainer">
+                    <span class="text"><b>Unity Web Player</b> | carGame</span>
+                </div>
+
+                <div id="unityPlayer">
+                    <div class="missing">
+                        <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+                            <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+                        </a>
+                    </div>
+                    <div class="broken">
+                        <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+                            <img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+                        </a>
+                    </div>
+                </div>
+
+                <div id="bottomMessageContainer" class="textContainer">
+                    <span class="text">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</span>
+                </div>
+
+            </div>
+
+            <div id="rightContainer">
+                
+                <div id="submissionContainer">
+
+                    <div id="botCodeText" class="textContainer">
+                        <span class="text">Bot Code</span>
+                    </div>
+
+                    <textarea id="bot-code" style="font-family: monospace;">
+startFunction = function() {};
+
+updateFunction = function() {
+    Car.Accelerate(.5);
+    Car.Turn( Car.GetCheckpointDirection());
+
+    if (Car.IsFlipped())
+        Car.UnFlip();
+};
+                    </textarea>
+
+                    <div id="codeTestButton" class="button textContainer">
+                        <span class="text">Test Code</span>
+                    </div>
+                    
+
+                    <div id="formContainer1">
+                        <div class="formLabel textContainer">
+                            <span class="text">Name</span>
+                        </div>
+                        
+                        <input id="nameInput" class="formInput" type="text" />
+                    </div>
+
+                    <div id="formContainer2">
+                        <div class="formLabel textContainer">
+                            <span class="text">Email</span>
+                        </div>
+                        <input id="emailInput" class="formInput" type="text" />
+                    </div>
+
+                    <div id="scoreText" class="textContainer">
+                        <span class="text">Score:</span>
+                    </div>
+
+                    <div id="scoreContainer" class="textContainer">
+                        <span id="score" class="text">6.99</span>
+                    </div>
+
+                    <div id="submitButton" class="button textContainer">
+                        <span class="text">Submit</span>
+                    </div>
+
+
+                </div>
+
+                <div id="leaderboardContainer">
+
+                    <div id="leaderboardText" class="textContainer">
+                        <span class="text">Leaderboard</span>
+                    </div>
+
+                    <div id="leaderboard">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

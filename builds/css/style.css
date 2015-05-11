@@ -1,0 +1,311 @@
+body {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+a:link, a:visited {
+    color: #000;
+}
+a:active, a:hover {
+    color: #666;
+}
+p.header {
+    font-size: small;
+}
+p.header span {
+    font-weight: bold;
+}
+p.footer {
+    font-size: x-small;
+}
+div.content {
+    margin: auto;
+    width: 960px;
+}
+div.broken,
+div.missing {
+    margin: auto;
+    position: relative;
+    top: 50%;
+    width: 193px;
+}
+div.broken a,
+div.missing a {
+    height: 63px;
+    position: relative;
+    top: -31px;
+}
+div.broken img,
+div.missing img {
+    border-width: 0px;
+}
+div.broken {
+    display: none;
+}
+div#unityPlayer {
+    cursor: default;
+    height: 600px;
+    width: 960px;
+}
+
+
+p.error {
+    color: red;
+    font-size: 10pt;
+    font-family: monospace;
+}
+
+
+
+
+
+/* a container for text that is vertically centered */
+.textContainer {
+    text-align: center;
+    display: table; }
+
+/* the text inside the container */
+.text {
+    display: table-cell;
+    vertical-align: middle; }
+
+.button {
+    background-color: #CCCCCC;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+
+}
+
+.button:hover {
+    background-color: #999999;
+}
+
+.button:active {
+    background-color: #777777;
+}
+
+/****************************************************
+ *                                                  *
+ *                    Containers                    *
+ *                                                  *
+ ****************************************************/
+
+#mainContainer {
+    position: absolute;
+    width: 1400px;
+    height: 800px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#leftContainer {
+    position: absolute;
+    width: 1000px;
+    height: 100%;
+    left: 0;
+}
+
+#rightContainer {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    right: 0;
+}
+
+#topMessageContainer {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 30px;
+    font-size: small;
+}
+
+#unityPlayer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#bottomMessageContainer {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 30px;
+    font-size: x-small;
+}
+
+/****************************************************
+ *                                                  *
+ *                    Submission                    *
+ *                                                  *
+ ****************************************************/
+
+#submissionContainer {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 0;
+}
+
+
+#botCodeText {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 10px;
+}
+
+#bot-code {
+    position: absolute;
+    top: 50px;
+    width: 90%;
+    height: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    resize: none;
+}
+
+
+#codeTestButton {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 0;
+    right: 0;
+    top: 220px;
+    margin: auto;
+}
+
+
+#formContainer1 {
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    top: 280px;
+    left: 20px;
+}
+
+#formContainer2 {
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    top: 320px;
+    left: 20px;
+}
+
+.formLabel {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+}
+
+
+.formInput {
+    position: absolute;
+    width: 190px;
+    height: 20px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+#scoreText {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    top: 260px;
+    right: 25px;
+}
+
+#scoreContainer {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    top: 280px;
+    right: 25px;
+}
+
+
+
+#submitButton {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    top: 320px;
+    right: 25px;
+}
+
+/****************************************************
+ *                                                  *
+ *                   Leaderboard                    *
+ *                                                  *
+ ****************************************************/
+
+#leaderboardContainer {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    bottom: 0;
+}
+
+#leaderboardText {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 0;
+    font-size: 25px;
+}
+
+#leaderboard {
+    position: absolute;
+    width: 80%;
+    height: 300px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.score {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: green;
+}
+
+.name {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.time {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    right: 0;
+    text-align: left;
+    padding-left: 10px;
+}
