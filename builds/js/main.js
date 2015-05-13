@@ -50,7 +50,7 @@ function getAICode() {
 }
 
 function printError(logString, stackTrace, type) {
-    // $("#error-log").append("<p class='error'>" + logString + "</p>");
+    $("#error-log").append("<p class='error'>" + logString + "</p>");
     console.log(logString);
     console.log(stackTrace);
     console.log(type);

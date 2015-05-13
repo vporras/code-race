@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica, Verdana, Arial, sans-serif;
-    background-color: white;
+    background-color: #66CCFF;
     color: black;
     text-align: center;
 }
@@ -43,10 +43,21 @@ div.missing img {
 div.broken {
     display: none;
 }
+
+textarea#bot-code {
+    border: 5px solid #FFCC66;
+}
+
 div#unityPlayer {
     cursor: default;
     height: 600px;
     width: 960px;
+    border: 5px solid #FFCC66;
+}
+
+div#leaderboard {
+    background-color: white;
+    border: 5px solid #FFCC66;
 }
 
 
@@ -55,6 +66,20 @@ p.error {
     font-size: 10pt;
     font-family: monospace;
 }
+
+#apiContainer {
+    /*background-color: white;*/
+    border: none;
+    width: 80%;
+    position: absolute;
+    top: 650px;
+    left: 0px;
+    width: 1000px;
+    height: 1200px;
+    overflow: hidden;
+}
+
+body,html{ height: 100% }
 
 
 
@@ -125,18 +150,19 @@ p.error {
 }
 
 #topMessageContainer {
-    position: absolute;
+    /*position: absolute;
     width: 100%;
     height: 30px;
     top: 30px;
-    font-size: small;
+    font-size: small;*/
+    display: none;
 }
 
 #unityPlayer {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: -150px;
     bottom: 0;
     margin: auto;
 }
@@ -168,6 +194,7 @@ p.error {
     width: 100%;
     height: 30px;
     top: 10px;
+    font-size: 25px;
 }
 
 #bot-code {
@@ -199,6 +226,7 @@ p.error {
     height: 30px;
     top: 280px;
     left: 20px;
+    /*display: inline-block;*/
 }
 
 #formContainer2 {
@@ -207,6 +235,7 @@ p.error {
     height: 30px;
     top: 320px;
     left: 20px;
+    /*display: inline-block;*/
 }
 
 .formLabel {
