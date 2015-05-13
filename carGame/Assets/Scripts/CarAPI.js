@@ -106,11 +106,10 @@ function GetDistanceToObstacle (azimuth : float, altitude : float) : float {
 	if (Physics.Raycast(transform.position, direction, hit, Mathf.Infinity, layerMask))
 		Debug.DrawLine(transform.position, hit.point, Color.white);
 		
-//	if (hit.distance > 0)
-//		return hit.distance;
-//	else
-//		return 999;
-	return hit.distance;
+	if (hit.distance > 0)
+		return hit.distance;
+	else
+		return 999;
 }
 
 function GetDistanceToObstacle (azimuth : float) : float {
