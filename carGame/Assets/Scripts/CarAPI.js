@@ -16,6 +16,8 @@ private var brakeTorque : float = 0;
 private var maxSteerAngle : float = 15;
 private var steerAngle : float = 0;
 
+var countdown : int = 0;
+
 var lapCompleted : boolean = false;
 var path: Path;
 private var checkpointIdx : int = 0;
@@ -32,6 +34,7 @@ function Reset () {
 	transform.position = Vector3(230, 2, 240);
 	transform.rotation = Quaternion.identity;
 	rigidbody.velocity = Vector3(0, 0, 0);
+	countdown = 0;
 }
 
 function Accelerate (power: float) {
@@ -79,6 +82,14 @@ function UnFlip () {
    transform.rotation.x = 0;
    rigidbody.velocity = Vector3(0, 0, 0);
    transform.Translate(0, 1, 0);
+}
+
+function SetCountdown ( amount : int) {
+	countdown = amount;
+}
+
+function GetCountdown () : int {
+	return countdown;
 }
 
 function GetCheckpointDirection () : float {
@@ -141,6 +152,10 @@ function FixedUpdate () {
 	if (checkpointIdx >= path.GetLength()) {
 		checkpointIdx = 0;
 		lapCompleted = true;
+	}
+
+	if (countdown > 0) {
+		countdown--;
 	}
 }
 
